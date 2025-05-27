@@ -1,0 +1,30 @@
+<div class="menu-container">
+  <!-- Categories are now in the sidebar -->
+  <div class="items">
+    <div class="menu-item" *ngFor="let item of items">
+      <div class="item-image">
+        <img [src]="item.image" [alt]="item.name">
+        <div class="food-type" [ngClass]="item.foodType">
+          <span class="dot"></span>
+          <span class="type-text">{{ item.foodType | titlecase }}</span>
+        </div>
+      </div>
+      <div class="item-content">
+        <div class="item-header">
+          <h3>{{ item.name }}</h3>
+          <span class="item-price">${{ item.price.toFixed(2) }}</span>
+        </div>
+        <p class="item-description">{{ item.description }}</p>
+        <div class="item-actions">
+          <button class="add-btn">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+
