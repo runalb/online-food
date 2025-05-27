@@ -1,18 +1,15 @@
 <header class="app-header">
   <div class="header-content">
     <div class="header-left">
-      <!-- <button class="hamburger-menu" (click)="toggleSidebar()">
-        <span class="material-icons">menu</span>
-      </button> -->
-      <div class="logo">
+      <div class="logo" (click)="navigateTo('\'')">
         <img src="https://www.mcdonalds.com/content/dam/sites/usa/nfl/icons/arches-logo_108x108.jpg" alt="OnlineFood" class="logo-img">
         <h1>OnlineFood</h1>
       </div>
     </div>
     <div class="header-right">
-      <div class="header-cart" (click)="toggleCart()">
+      <div class="header-cart" (click)="navigateTo('\cart')">
         <span class="material-icons">shopping_cart</span>
-        <span class="cart-count">0</span>
+        <span class="cart-count" *ngIf="cartCount > 0">{{ cartCount }}</span>
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,23 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'OnlineFood';
+  cartCount: number = 0;
 
-  constructor(private router: Router) {}
- 
+  constructor(
+    private router: Router,
+    private cartService: CartService
+  ) {}
 
-  toggleCart() {
-    if (this.router.url === '/cart') {
-      this.router.navigate(['/']);
-    } else {
-      this.router.navigate(['/cart']);
-    }
+  ngOnInit() {
+    this.cartService.getCartItems().subscribe(items => {
+      this.cartCount = items.reduce((total, item) => total + item.quantity, 0);
+    });
+  }
+
+
+  navigateTo(url:string) {
+    this.router.navigate([url]);
   }
 }

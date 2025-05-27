@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CartService, CartItem } from '../../services/cart.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +17,10 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   total: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.cartService.getCartItems().subscribe(items => {
@@ -38,5 +42,6 @@ export class CartComponent implements OnInit {
     // TODO: Implement order placement logic
     console.log('Placing order:', this.cartItems);
     this.cartService.clearCart();
+    this.router.navigate(['/']);
   }
 }
