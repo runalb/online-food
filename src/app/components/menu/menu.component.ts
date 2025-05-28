@@ -5,6 +5,7 @@ import { RouterOutlet, Router } from '@angular/router';
 import { ItemComponent } from "../item/item.component";
 import { BannerComponent } from "../banner/banner.component";
 import { NgFor, NgClass } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 interface CategoryInfo {
   name: string;
@@ -15,7 +16,7 @@ interface CategoryInfo {
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [MatButtonModule, ItemComponent, BannerComponent, NgFor, NgClass],
+  imports: [MatButtonModule, ItemComponent, BannerComponent, NgFor, NgClass, MatIconModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
@@ -24,6 +25,7 @@ export class MenuComponent implements OnInit {
   menuItems: MenuItem[] = [];
   filteredItems: MenuItem[] = [];
   categories: CategoryInfo[] = [];
+  isSidebarOpen: boolean = false;
 
   private categoryIcons: { [key: string]: string } = {
     'Burgers': '🍔',
@@ -45,6 +47,10 @@ export class MenuComponent implements OnInit {
     
     // Initialize categories
     this.initializeCategories();
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
   private initializeCategories() {
@@ -82,6 +88,11 @@ export class MenuComponent implements OnInit {
       this.filteredItems = [...this.menuItems];
     } else {
       this.filteredItems = this.menuItems.filter(item => item.category === category);
+    }
+
+    // Close sidebar on mobile after selection
+    if (window.innerWidth <= 768) {
+      this.isSidebarOpen = false;
     }
   }
 }

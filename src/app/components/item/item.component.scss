@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+
+  @media screen and (max-width: 768px) {
+    padding: 16px;
+  }
 }
 
 .categories {
@@ -9,6 +13,11 @@
   gap: 10px;
   margin-bottom: 20px;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 768px) {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
 }
 
 .items {
@@ -16,17 +25,25 @@
   gap: 24px;
   width: 100%;
   
-  // Mobile: 1 columns
+  // Mobile: 1 column (default)
   grid-template-columns: repeat(1, 1fr);
   
-  // Tablet: 3 columns (768px and up)
+  // Small tablets: 2 columns (480px and up)
+  @media screen and (min-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  // Tablets: 3 columns (768px and up)
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
   
   // Desktop: 4 columns (1024px and up)
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
   }
 }
 
@@ -50,6 +67,14 @@
     width: 100%;
     height: 200px;
     overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+      height: 180px;
+    }
+
+    @media screen and (max-width: 480px) {
+      height: 160px;
+    }
 
     img {
       width: 100%;
@@ -75,15 +100,29 @@
       backdrop-filter: blur(4px);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
+      @media screen and (max-width: 768px) {
+        padding: 4px 10px;
+        gap: 4px;
+      }
+
       .dot {
         width: 12px;
         height: 12px;
         border-radius: 50%;
+
+        @media screen and (max-width: 768px) {
+          width: 10px;
+          height: 10px;
+        }
       }
 
       .type-text {
         font-size: 0.75rem;
         font-weight: 500;
+
+        @media screen and (max-width: 768px) {
+          font-size: 0.7rem;
+        }
       }
 
       &.veg {
@@ -125,11 +164,19 @@
     flex: 1;
     background: white;
 
+    @media screen and (max-width: 768px) {
+      padding: 16px;
+    }
+
     .item-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: 12px;
+
+      @media screen and (max-width: 768px) {
+        margin-bottom: 8px;
+      }
 
       h3 {
         margin: 0;
@@ -137,12 +184,20 @@
         font-weight: 600;
         color: #2c3e50;
         line-height: 1.4;
+
+        @media screen and (max-width: 768px) {
+          font-size: 1rem;
+        }
       }
 
       .item-price {
         font-size: 1.2rem;
         font-weight: 600;
         color: #c62828;
+
+        @media screen and (max-width: 768px) {
+          font-size: 1.1rem;
+        }
       }
     }
 
@@ -152,6 +207,11 @@
       color: #666;
       line-height: 1.5;
       flex: 1;
+
+      @media screen and (max-width: 768px) {
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
     }
 
     .item-actions {
@@ -168,6 +228,11 @@
         font-size: 1rem;
         background: #c62828;
         color: white;
+        
+        @media screen and (max-width: 768px) {
+          padding: 12px;
+          font-size: 0.95rem;
+        }
         
         &:hover {
           background: darken(#c62828, 5%);

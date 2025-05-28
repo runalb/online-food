@@ -5,6 +5,15 @@
   overflow: hidden;
   margin-top: 20px;
   position: relative;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 250px 1fr;
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    margin-top: 16px;
+  }
 }
 
 .sidebar {
@@ -19,11 +28,31 @@
   display: flex;
   flex-direction: column;
 
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    left: -300px;
+    top: 56px;
+    height: calc(100vh - 56px);
+    width: 300px;
+    z-index: 1000;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+
+    &.open {
+      transform: translateX(300px);
+    }
+  }
+
   .sidebar-content {
     padding: 24px 16px;
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+
+    @media screen and (max-width: 768px) {
+      padding: 16px;
+    }
   }
 
   .menu-category {
@@ -37,6 +66,10 @@
     background: transparent;
     position: relative;
     overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+      padding: 12px;
+    }
 
     &:hover {
       background: rgba(198, 40, 40, 0.04);
@@ -74,6 +107,13 @@
       margin-right: 16px;
       font-size: 1.4rem;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+      @media screen and (max-width: 768px) {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+        margin-right: 12px;
+      }
     }
 
     .category-info {
@@ -86,11 +126,19 @@
         font-size: 0.95rem;
         color: #2c3e50;
         font-weight: 500;
+
+        @media screen and (max-width: 768px) {
+          font-size: 0.9rem;
+        }
       }
 
       .category-count {
         font-size: 0.8rem;
         color: #95a5a6;
+
+        @media screen and (max-width: 768px) {
+          font-size: 0.75rem;
+        }
       }
     }
   }
@@ -103,13 +151,46 @@
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 64px);
+
+  @media screen and (max-width: 768px) {
+    padding: 16px;
+    min-height: calc(100vh - 56px);
+  }
 }
 
 .category-tabs {
   margin-bottom: 20px;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 16px;
+  }
 }
 
 .cart-sidebar {
   background-color: #ffe0b2;
   padding: 20px;
+}
+
+// Mobile menu toggle button
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: #c62828;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
 }

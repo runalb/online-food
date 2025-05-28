@@ -2,7 +2,7 @@
 
 
 <div class="app-container">
-  <div class="sidebar">
+  <div class="sidebar" [class.open]="isSidebarOpen">
     <div class="sidebar-content">
       <div class="menu-category" 
            *ngFor="let category of categories"
@@ -24,3 +24,7 @@
 
   </div>
 </div>
+
+<button class="mobile-menu-toggle" (click)="toggleSidebar()">
+  <span class="material-icons">{{isSidebarOpen ? 'close' : 'menu'}}</span>
+</button>
