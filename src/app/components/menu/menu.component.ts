@@ -16,7 +16,7 @@ interface CategoryInfo {
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [MatButtonModule, ItemComponent, BannerComponent, NgFor, NgClass, MatIconModule],
+  imports: [MatButtonModule, ItemComponent, BannerComponent, NgFor, MatIconModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
