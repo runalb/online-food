@@ -4,43 +4,14 @@
 <div class="app-container">
   <div class="sidebar">
     <div class="sidebar-content">
-      <div class="menu-category" [class.active]="selectedCategory === ''" (click)="selectCategory('')">
-        <div class="category-icon">🏠</div>
+      <div class="menu-category" 
+           *ngFor="let category of categories"
+           [class.active]="selectedCategory === category.name" 
+           (click)="selectCategory(category.name)">
+        <div class="category-icon">{{category.icon}}</div>
         <div class="category-info">
-          <span class="category-name">All Items</span>
-          <span class="category-count">24 items</span>
-        </div>
-      </div>
-
-      <div class="menu-category" [class.active]="selectedCategory === 'Burgers'" (click)="selectCategory('Burgers')">
-        <div class="category-icon">🍔</div>
-        <div class="category-info">
-          <span class="category-name">Burgers</span>
-          <span class="category-count">8 items</span>
-        </div>
-      </div>
-
-      <div class="menu-category" [class.active]="selectedCategory === 'Drinks'" (click)="selectCategory('Drinks')">
-        <div class="category-icon">🥤</div>
-        <div class="category-info">
-          <span class="category-name">Drinks</span>
-          <span class="category-count">6 items</span>
-        </div>
-      </div>
-
-      <div class="menu-category" [class.active]="selectedCategory === 'Sides'" (click)="selectCategory('Sides')">
-        <div class="category-icon">🍟</div>
-        <div class="category-info">
-          <span class="category-name">Sides</span>
-          <span class="category-count">5 items</span>
-        </div>
-      </div>
-
-      <div class="menu-category" [class.active]="selectedCategory === 'Desserts'" (click)="selectCategory('Desserts')">
-        <div class="category-icon">🍦</div>
-        <div class="category-info">
-          <span class="category-name">Desserts</span>
-          <span class="category-count">5 items</span>
+          <span class="category-name">{{category.name || 'All Items'}}</span>
+          <span class="category-count">{{category.count}} items</span>
         </div>
       </div>
     </div>
