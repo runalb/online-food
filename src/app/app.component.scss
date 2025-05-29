@@ -1,6 +1,6 @@
 .app-header {
-  background: linear-gradient(to right, #c62828, #d32f2f);
-  color: white;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-color));
+  color: var(--on-primary);
   padding: 0 24px;
   position: fixed;
   top: 0;
@@ -59,20 +59,20 @@
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: var(--hover-color);
     }
 
     .material-icons {
       font-size: 24px;
-      color: white;
+      color: var(--on-primary);
     }
 
     .cart-count {
       position: absolute;
       top: -4px;
       right: -4px;
-      background: #ffd700;
-      color: #000;
+      background: var(--surface-color);
+      color: var(--on-surface);
       font-size: 0.75rem;
       font-weight: 600;
       min-width: 18px;
@@ -137,7 +137,7 @@
           bottom: -8px;
           width: 40px;
           height: 2px;
-          background: #c62828;
+          background: var(--primary-color);
         }
       }
 
@@ -179,7 +179,6 @@
           transition: all 0.2s ease;
 
           &:hover {
-            background: #c62828;
             transform: translateY(-2px);
           }
 
