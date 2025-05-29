@@ -1,7 +1,16 @@
-<div class="banner">
+<div class="banner" [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + slides[currentSlide].background + ')'">
   <div class="banner-content">
-    <h2>Delicious Food Delivered</h2>
-    <p>Order your favorite meals online and get them delivered to your doorstep</p>
+    <h2>{{ slides[currentSlide].title }}</h2>
+    <p>{{ slides[currentSlide].description }}</p>
     <button class="order-now-btn">Order Now</button>
+  </div>
+  
+  <div class="carousel-controls">
+    <div class="carousel-indicators">
+      <span *ngFor="let slide of slides; let i = index" 
+            [class.active]="i === currentSlide"
+            (click)="goToSlide(i)">
+      </span>
+    </div>
   </div>
 </div>

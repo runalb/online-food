@@ -9,10 +9,13 @@
     text-align: center;
     color: var(--on-primary);
     margin-top: 64px;
+    position: relative;
+    transition: background-image 0.5s ease-in-out;
   
     .banner-content {
       max-width: 800px;
       padding: 0 20px;
+      z-index: 1;
   
       h2 {
         font-size: 2.5rem;
@@ -39,7 +42,6 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   
         &:hover {
-          background: var(--secondary-color);
           transform: translateY(-2px);
           box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
         }
@@ -47,6 +49,40 @@
         &:active {
           transform: translateY(0);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    .carousel-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+
+      .carousel-indicators {
+        display: flex;
+        gap: 12px;
+
+        span {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.3);
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &.active {
+            background: white;
+            transform: scale(1.2);
+          }
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.5);
+          }
         }
       }
     }
@@ -72,8 +108,15 @@
           font-size: 1rem;
         }
       }
+
+      .carousel-controls {
+        bottom: 10px;
+
+        .carousel-indicators span {
+          width: 10px;
+          height: 10px;
+        }
+      }
     }
-  
-    // ... rest of the mobile styles ...
   }
   
