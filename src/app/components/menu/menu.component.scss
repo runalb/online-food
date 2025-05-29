@@ -19,7 +19,7 @@
   background: linear-gradient(180deg, var(--surface-color) 0%, var(--background-color) 100%);
   padding: 0;
   height: 100%;
-  border-right: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+  border-right: 1px solid var(--border-color);
   transition: transform 0.3s ease-in-out;
   box-shadow: 4px 0 24px rgba(0, 0, 0, 0.03);
   position: sticky;
@@ -71,12 +71,12 @@
     }
 
     &:hover {
-      background: rgba(198, 40, 40, 0.04);
+      background: var(--hover-color);
       transform: translateX(4px);
     }
 
     &.active {
-      background: rgba(198, 40, 40, 0.08);
+      background: var(--hover-color);
       
       &::before {
         content: '';
@@ -85,12 +85,12 @@
         top: 0;
         bottom: 0;
         width: 4px;
-        background: #c62828;
+        background: var(--primary-color);
         border-radius: 0 2px 2px 0;
       }
 
       .category-name {
-        color: #f61828;
+        color: var(--primary-color);
         font-weight: 600;
       }
     }
@@ -133,7 +133,7 @@
 
       .category-count {
         font-size: 0.8rem;
-        color: var(--on-surface-secondary, #95a5a6);
+        color: var(--on-surface-secondary);
 
         @media screen and (max-width: 768px) {
           font-size: 0.75rem;
@@ -166,7 +166,7 @@
 }
 
 .cart-sidebar {
-  background-color: #ffe0b2;
+  background-color: var(--surface-color);
   padding: 20px;
 }
 
@@ -179,8 +179,8 @@
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  background: #c62828;
-  color: white;
+  background: var(--primary-color);
+  color: var(--on-primary);
   border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1001;
