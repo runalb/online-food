@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartService, CartItem } from '../../services/cart.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,11 +17,15 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   total: number = 0;
+  isDarkMode$;
 
   constructor(
     private cartService: CartService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private themeService: ThemeService
+  ) {
+    this.isDarkMode$ = this.themeService.isDarkMode$;
+  }
 
   ngOnInit() {
     this.cartService.getCartItems().subscribe(items => {
