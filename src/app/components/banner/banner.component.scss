@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: var(--on-primary);
     margin-top: 64px;
   
     .banner-content {
@@ -28,8 +28,8 @@
       }
   
       .order-now-btn {
-        background: #c62828;
-        color: white;
+        background: var(--primary-color);
+        color: var(--on-primary);
         border: none;
         padding: 12px 32px;
         font-size: 1.1rem;
@@ -39,7 +39,7 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   
         &:hover {
-          background: #b71c1c;
+          background: var(--secondary-color);
           transform: translateY(-2px);
           box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
         }
