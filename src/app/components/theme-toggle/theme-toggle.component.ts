@@ -7,20 +7,18 @@ import { ThemeService } from '../../services/theme.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <button class="theme-toggle" (click)="toggleTheme()">
-      <i class="material-icons">{{ (isDarkMode$ | async) ? 'light_mode' : 'dark_mode' }}</i>
-    </button>
+    <div class="theme-toggle" (click)="toggleTheme()">
+      <span class="material-icons">{{ (isDarkMode$ | async) ? 'light_mode' : 'dark_mode' }}</span>
+    </div>
   `,
   styles: [`
     .theme-toggle {
-      background: none;
-      border: none;
       cursor: pointer;
-      padding: 8px;
-      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 8px;
+      border-radius: 50%;
       transition: background-color 0.3s;
     }
     
