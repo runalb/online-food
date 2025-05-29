@@ -1,17 +1,11 @@
 .cart-container {
-  background: var(--surface-color);
+  background: var(--background-color);
   border-radius: 16px;
-  box-shadow: 0 4px 12px var(--border-color);
-  padding: 24px;
   max-width: 1200px;
   margin: 90px auto 20px;
-  width: 96%;
+  width: 95%;
   color: var(--on-surface);
   transition: background-color 0.3s ease, color 0.3s ease;
-
-  @media (max-width: 768px) {
-    padding: 16px;
-  }
 }
 
 .cart-header {
@@ -204,7 +198,7 @@
   border-radius: 16px;
   padding: 24px;
   position: sticky;
-  top: 20px;
+  top: 90px;
   height: fit-content;
 
   @media (max-width: 1024px) {
@@ -265,7 +259,7 @@
 
 .empty-cart {
   text-align: center;
-  padding: 48px 24px;
+  padding: 75px 24px;
   color: var(--on-surface-secondary);
 
   .material-icons {

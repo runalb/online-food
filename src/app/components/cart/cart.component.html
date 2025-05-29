@@ -14,12 +14,17 @@
           <h3>{{ item.name }}</h3>
           <p class="item-price">${{ item.price.toFixed(2) }}</p>
           <div class="quantity-controls">
-            <button class="quantity-btn" (click)="updateQuantity(item, -1)">
-              <span class="material-icons">{{ item.quantity <= 1 ? 'delete' : 'remove' }}</span>
+            <button class="quantity-btn decrement" (click)="updateQuantity(item, -1)" aria-label="Decrease quantity">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
             </button>
             <span class="quantity">{{ item.quantity }}</span>
-            <button class="quantity-btn" (click)="updateQuantity(item, 1)">
-              <span class="material-icons">add</span>
+            <button class="quantity-btn increment" (click)="updateQuantity(item, 1)" aria-label="Increase quantity">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
             </button>
           </div>
         </div>
@@ -53,7 +58,7 @@
     <div class="empty-cart">
       <span class="material-icons">shopping_cart</span>
       <p>Your cart is empty</p>
-      <p class="sub-text">Add some delicious items to your cart</p>
+      <p class="sub-text">Add some items to your cart</p>
     </div>
   </ng-template>
 </div>

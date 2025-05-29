@@ -39,9 +39,6 @@ export class CartComponent implements OnInit {
     this.cartService.updateQuantity(item.id, newQuantity);
   }
 
-  removeItem(itemId: number) {
-    this.cartService.removeItem(itemId);
-  }
 
   placeOrder() {
     // TODO: Implement order placement logic
